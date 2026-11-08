@@ -96,7 +96,7 @@ class SupplyData {
       id: '5',
       name: 'Toy Robot',
       quantity: 8,
-      unitPrice: '120',
+      unitPrice: '12',
       parameterClassId: '4',
     ),
   ];
