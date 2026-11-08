@@ -108,7 +108,8 @@ class SupplyData {
 
     for (final supply in supplies) {
       totals[supply.parameterClassId] =
-          (totals[supply.parameterClassId] ?? 0) + 1;
+          (totals[supply.parameterClassId] ?? 0) +
+          supply.quantity.toDouble();
     }
 
     return totals;
