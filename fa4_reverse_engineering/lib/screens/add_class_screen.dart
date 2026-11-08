@@ -15,7 +15,8 @@ class _AddClassScreenState extends State<AddClassScreen> {
   final _classController = TextEditingController();
   final _nameController = TextEditingController();
 
-  Color _color = Colors.red;
+  HSVColor _hsv = const HSVColor.fromAHSV(1, 0, 1, 1); 
+  Color get _color => _hsv.toColor();
 
   @override
   void dispose() {
@@ -111,10 +112,10 @@ class _AddClassScreenState extends State<AddClassScreen> {
           width: 250,
           height: 250,
           child: ColorPickerArea(
-            HSVColor.fromColor(_color),
+            _hsv,
             (HSVColor color) {
               setState(() {
-                _color = color.toColor();
+                _hsv = HSVColor.fromAHSV(1, color.hue, color.saturation, 1.0);
               });
             },
             PaletteType.hueWheel,

@@ -64,28 +64,16 @@ class SupplyChart extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(
                         horizontal: 5,
                       ),
-                      child: TweenAnimationBuilder<double>(
-                        tween: Tween<double>(
-                          end: _fill(
-                            totals[c.id] ?? 0,
-                            maxTotal,
-                          ),
-                        ),
-                        duration: const Duration(milliseconds: 600),
-                        curve: Curves.easeOut,
-                        builder: (context, fill, child) {
-                          return FractionallySizedBox(
-                            heightFactor: fill,
-                            alignment: Alignment.bottomCenter,
-                            child: child,
-                          );
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            color: barColor,
-                            borderRadius: const BorderRadius.vertical(
-                              top: Radius.circular(12),
+                      child: Container(
+                        height: ( _chartHeight - 16 * 2 - 12 - _stripHeight) *
+                            _fill(
+                              totals[c.id] ?? 0,
+                              maxTotal,
                             ),
+                        decoration: BoxDecoration(
+                          color: barColor,
+                          borderRadius: const BorderRadius.vertical(
+                            top: Radius.circular(12),
                           ),
                         ),
                       ),
